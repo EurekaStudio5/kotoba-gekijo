@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Authorization callback — コトバ劇場</title>
+<style>body{font-family:-apple-system,"Segoe UI",sans-serif;max-width:680px;margin:60px auto;padding:0 20px;line-height:1.7;color:#222;text-align:center}h1{color:#28184e}code{display:block;word-break:break-all;background:#f4f4f7;padding:14px;border-radius:8px;margin-top:16px}</style>
+</head><body>
+<h1>認証が完了しました</h1>
+<p>Authorization received. You can close this tab.</p>
+<div id="out"></div>
+<script>
+  var q = new URLSearchParams(location.search);
+  var code = q.get('code'); var err = q.get('error');
+  document.getElementById('out').innerHTML = err
+    ? ('<code>error: ' + err + '</code>')
+    : (code ? ('<code>code: ' + code + '</code>') : '<code>no code in URL</code>');
+</script>
+</body></html>
